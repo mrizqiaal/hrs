@@ -1,0 +1,274 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="842" pageHeight="595" orientation="Landscape" columnWidth="802" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="e4e86171-a880-441a-955a-2879785862ea">
+	<property name="ireport.zoom" value="0.9090909090909091"/>
+	<property name="ireport.x" value="15"/>
+	<property name="ireport.y" value="0"/>
+	<style name="Title" forecolor="#FFFFFF" fontName="Times New Roman" fontSize="50" isBold="false" pdfFontName="Times-Bold"/>
+	<style name="SubTitle" forecolor="#666666" fontName="Times New Roman" fontSize="18" isBold="false" pdfFontName="Times-Roman"/>
+	<style name="Column header" forecolor="#666666" fontName="Times New Roman" fontSize="14" isBold="true" pdfFontName="Times-Roman"/>
+	<style name="Detail" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman"/>
+	<style name="Row" mode="Transparent" fontName="Times New Roman" pdfFontName="Times-Roman">
+		<conditionalStyle>
+			<conditionExpression><![CDATA[$V{REPORT_COUNT}%2 == 0]]></conditionExpression>
+			<style mode="Opaque" backcolor="#F0EFEF"/>
+		</conditionalStyle>
+	</style>
+	<subDataset name="PieChartDataset" uuid="ab00e467-9a94-40ce-ac4f-8d103400be76"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT * from report]]>
+	</queryString>
+	<field name="guestid" class="java.lang.Long">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="guestname" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="roomid" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="roomnumber" class="java.lang.Integer">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="roomtype" class="java.lang.String">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="checkin_date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="checkout_date" class="java.sql.Date">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="roomprice" class="java.math.BigDecimal">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="lama" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<field name="total" class="java.lang.Double">
+		<fieldDescription><![CDATA[]]></fieldDescription>
+	</field>
+	<group name="checkin_date">
+		<groupExpression><![CDATA[$F{checkin_date}]]></groupExpression>
+		<groupHeader>
+			<band height="31">
+				<frame>
+					<reportElement mode="Opaque" x="8" y="7" width="794" height="24" forecolor="#B89F7D" backcolor="#70A9C6" uuid="139e2020-99a4-43af-ae5e-8050104b0b24"/>
+					<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+						<reportElement style="SubTitle" isPrintRepeatedValues="false" x="2" y="1" width="263" height="23" forecolor="#FFFFFF" uuid="70a18471-ac88-4a6c-935c-e5c6c8495274"/>
+						<textElement>
+							<font fontName="Arial" isBold="false" pdfFontName="Helvetica"/>
+						</textElement>
+						<textFieldExpression><![CDATA[$F{checkin_date}]]></textFieldExpression>
+					</textField>
+				</frame>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="6"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band height="555" splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="94" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="-20" y="0" width="841" height="65" forecolor="#006699" backcolor="#006699" uuid="f29f3ec4-021a-40fe-a686-236373afbd57"/>
+				<staticText>
+					<reportElement style="Title" x="0" y="0" width="469" height="65" uuid="e19400b4-092c-4ed9-acf7-fd93a4c73b15"/>
+					<textElement textAlignment="Right">
+						<font size="54" isBold="false"/>
+					</textElement>
+					<text><![CDATA[Report]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="18" splitType="Stretch">
+			<frame>
+				<reportElement x="6" y="0" width="796" height="14" uuid="4135599e-0b8f-4517-b03a-9497f5f097e2"/>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="0" y="0" width="63" height="14" forecolor="#000000" uuid="fe19ef98-bab2-484e-acd6-7bbd93e541d0"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[GuestID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="63" y="0" width="130" height="14" forecolor="#000000" uuid="bda0e6c2-5b1f-4e25-8844-fa4736a8f70c"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Name]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="193" y="0" width="63" height="14" forecolor="#000000" uuid="60e7a797-da82-4501-8189-c9d11fc35be0"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[RoomID]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="256" y="0" width="63" height="14" forecolor="#000000" uuid="3eaea191-7005-409c-ba9f-550948c0e92c"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Number]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="319" y="0" width="110" height="14" forecolor="#000000" uuid="ca78a67c-95cb-4082-aed5-808b5373982b"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Type]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="429" y="0" width="115" height="14" forecolor="#000000" uuid="32bcdd3a-77dc-45b4-9d08-e8eda09234ce"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[CheckOut]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="544" y="0" width="93" height="14" forecolor="#000000" uuid="6c377d06-d392-4f3c-9316-405a881cdff7"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Price per Night]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="637" y="0" width="96" height="14" forecolor="#000000" uuid="9404af9f-3ddb-4a7f-9653-f9c10fedffa4"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Num. of Days]]></text>
+				</staticText>
+				<staticText>
+					<reportElement style="Column header" positionType="Float" x="733" y="0" width="63" height="14" forecolor="#000000" uuid="3e4ce83c-07e4-487c-822c-e2d3fc8f0e13"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="true" pdfFontName="Helvetica"/>
+					</textElement>
+					<text><![CDATA[Total]]></text>
+				</staticText>
+			</frame>
+		</band>
+	</columnHeader>
+	<detail>
+		<band height="15" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="6" y="14" width="796" height="1" uuid="d77fb435-a6c6-4eb8-9f79-e083a079a175"/>
+			</line>
+			<frame>
+				<reportElement x="6" y="0" width="796" height="14" uuid="322db334-b93a-4d7b-b159-10bdcfccb60d"/>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="0" y="0" width="63" height="14" uuid="46e1e44e-9c33-495b-a373-2901bbc61f8d"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guestid}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="63" y="0" width="130" height="14" uuid="7364aecd-db51-474f-9dd9-dec5b0faeba6"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{guestname}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="193" y="0" width="63" height="14" uuid="a264ddec-06f5-4ddf-8db0-c548a04e47b2"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{roomid}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="256" y="0" width="63" height="14" uuid="dc7b902d-52cf-4d39-b843-39983c438ec8"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{roomnumber}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="319" y="0" width="110" height="14" uuid="9426c464-7f4d-4314-971d-3159a7b4c409"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{roomtype}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="429" y="0" width="115" height="14" uuid="0cd27230-e887-4262-a8e0-6b1686eb578a"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{checkout_date}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="544" y="0" width="93" height="14" uuid="7bc38ea0-fb5b-4e2b-a8e7-ce5a4115ab08"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{roomprice}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="637" y="0" width="96" height="14" uuid="471e0433-ad43-4589-b50b-c60dce9feb51"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{lama}]]></textFieldExpression>
+				</textField>
+				<textField isStretchWithOverflow="true" isBlankWhenNull="true">
+					<reportElement style="Detail" positionType="Float" x="733" y="0" width="63" height="14" uuid="7caf3c68-24e7-45c3-84eb-ecf59a5a9cfc"/>
+					<textElement textAlignment="Left">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[$F{total}]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</detail>
+	<columnFooter>
+		<band height="7" splitType="Stretch">
+			<line>
+				<reportElement positionType="FixRelativeToBottom" x="0" y="3" width="555" height="1" uuid="94452747-673a-4855-84e3-e7202ef6f1ef"/>
+				<graphicElement>
+					<pen lineWidth="0.5" lineColor="#999999"/>
+				</graphicElement>
+			</line>
+		</band>
+	</columnFooter>
+	<pageFooter>
+		<band height="16" splitType="Stretch">
+			<frame>
+				<reportElement mode="Opaque" x="2" y="0" width="800" height="16" forecolor="#D0B48E" backcolor="#006699" uuid="205e3672-a1dd-4937-8b85-b29d04438d9f"/>
+				<textField evaluationTime="Report">
+					<reportElement style="Column header" x="753" y="0" width="40" height="16" forecolor="#FFFFFF" uuid="5c82e1d0-16d9-4d68-8422-e11fbe9e9cc7"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement style="Column header" x="673" y="0" width="80" height="16" forecolor="#FFFFFF" uuid="4f57ea7a-3132-477d-b2c3-52da74708ee0"/>
+					<textElement textAlignment="Right" verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA["Page "+$V{PAGE_NUMBER}+" of"]]></textFieldExpression>
+				</textField>
+				<textField pattern="EEEEE dd MMMMM yyyy">
+					<reportElement style="Column header" x="2" y="0" width="197" height="16" forecolor="#FFFFFF" uuid="c1942e78-2476-4b36-978f-f9270ee9af95"/>
+					<textElement verticalAlignment="Middle">
+						<font fontName="Arial" size="12" isBold="false" pdfFontName="Helvetica"/>
+					</textElement>
+					<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+				</textField>
+			</frame>
+		</band>
+	</pageFooter>
+	<summary>
+		<band splitType="Stretch"/>
+	</summary>
+</jasperReport>
